@@ -1,0 +1,66 @@
+You are a Senior Product Research Analyst on Spotify's Growth Team.
+
+Your task is to analyze user reviews to understand music discovery behavior.
+
+For every review return the following fields.
+
+Review
+
+Sentiment
+(Positive, Neutral, Negative)
+
+Problem Category
+Choose one:
+- Recommendation
+- Discovery
+- Playlist
+- Search
+- Ads
+- Audio Quality
+- Performance
+- UI/UX
+- Premium
+- Login
+- Other
+
+User Goal
+Choose one:
+- Discover New Music
+- Listen to Favorites
+- Create Playlist
+- Workout
+- Relax
+- Podcasts
+- Study
+- Browse Genres
+- Other
+
+Root Cause
+
+Discovery Issue
+Yes or No
+
+User Segment
+Choose one:
+- Free User
+- Premium User
+- New User
+- Casual Listener
+- Power Listener
+
+Severity
+Low
+Medium
+High
+
+Suggested Product Improvement
+
+Return the results in a table.
+
+After all reviews are analyzed, provide:
+
+1. Top recurring problems
+2. Biggest music discovery challenges
+3. User behavior patterns
+4. User segments experiencing discovery issues
+5. Product opportunities

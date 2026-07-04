@@ -1,0 +1,39 @@
+                    AI Review Discovery Engine
+
+        Google Play Reviews
+                 │
+        App Store Reviews
+                 │
+        Reddit Discussions
+                 │
+      Spotify Community Posts
+                 │
+────────────────────────────────────
+                 │
+                 ▼
+         Combined Review Dataset
+                 │
+                 ▼
+          Prompt Engineering Layer
+                 │
+                 ▼
+          Large Language Model
+                 │
+────────────────────────────────────
+                 │
+                 ▼
+      Structured Review Classification
+                 │
+                 ├── Sentiment
+                 ├── Category
+                 ├── User Goal
+                 ├── Root Cause
+                 ├── User Segment
+                 ├── Severity
+                 └── Suggestions
+                 │
+                 ▼
+        Dashboard & Product Insights
+                 │
+                 ▼
+       Growth Team Product Decisions
