@@ -1,19 +1,63 @@
-# 🎵 Spotify Review Discovery Engine
+# 🎵 Spotify AI Review Discovery Engine
 
 ## Overview
 
-Spotify Review Discovery Engine is a review analytics project that collects user reviews from multiple sources and classifies them into meaningful categories using AI. The enriched dataset helps identify customer sentiment, music discovery challenges, user goals, and user segments, making it suitable for dashboards and product insights.
+Spotify AI Review Discovery Engine is an AI-powered review analytics system that collects user feedback from multiple platforms and automatically transforms unstructured reviews into structured product insights using Google's Gemini AI.
+
+The system analyzes reviews from Google Play, Reddit, and the App Store to identify customer sentiment, music discovery challenges, recommendation frustrations, user goals, listening behaviors, feature requests, user segments, and unmet needs. The enriched dataset can be used for dashboards, product research, and product management decision-making.
 
 ---
 
 ## Features
 
-- Download Spotify reviews
-- Download Reddit reviews
-- Download App Store reviews (optional)
-- AI-powered review classification
-- Dashboard-ready CSV generation
-- Product insight documentation
+- Collect Spotify reviews from Google Play
+- Collect Reddit discussions
+- Collect App Store reviews (optional)
+- Merge reviews into a unified dataset
+- AI-powered review analysis using Gemini 2.5 Flash
+- Automatic sentiment classification
+- Identify music discovery challenges
+- Detect recommendation frustrations
+- Extract user goals and listening behaviors
+- Classify user segments
+- Identify feature requests
+- Discover unmet user needs
+- Generate dashboard-ready CSV files
+
+---
+
+## AI Review Discovery Pipeline
+
+```
+Google Play Reviews
+          │
+Reddit Discussions
+          │
+App Store Reviews
+          │
+          ▼
+Combined Review Dataset
+          ▼
+Gemini AI Review Analyzer
+          ▼
+Structured Product Insights
+          ▼
+Dashboard-ready CSV
+```
+
+---
+
+## Product Questions Answered
+
+The AI-powered review discovery engine helps answer:
+
+- Why do users struggle to discover new music?
+- What are the most common frustrations with recommendations?
+- What listening behaviors are users trying to achieve?
+- What causes users to repeatedly listen to the same content?
+- Which user segments experience different discovery challenges?
+- What unmet needs consistently emerge across reviews?
+- Which product improvements are requested most frequently?
 
 ---
 
@@ -21,9 +65,11 @@ Spotify Review Discovery Engine is a review analytics project that collects user
 
 - Python 3.x
 - Pandas
-- OpenAI API
-- Reddit API (PRAW)
+- Google Gemini 2.5 Flash API
+- Python Dotenv
 - Google Play Scraper
+- Reddit API (PRAW)
+- App Store Scraper
 
 ---
 
@@ -32,11 +78,19 @@ Spotify Review Discovery Engine is a review analytics project that collects user
 ```
 Spotify-Review-Discovery-Engine/
 │
-├── data/                  # Raw review datasets
-├── docs/                  # Project documentation
-├── output/                # Generated analysis and dashboard files
-├── prompts/               # AI prompts
-├── scripts/               # Python scripts
+├── data/                      # Raw and merged review datasets
+├── docs/                      # Project documentation
+├── outputs/                   # AI-generated analysis
+├── prompts/                   # AI prompts
+├── scripts/
+│   ├── download_reviews.py
+│   ├── download_reddit.py
+│   ├── download_appstore.py
+│   ├── merge_reviews.py
+│   └── analyze_reviews.py
+│
+├── requirements.txt
+├── .env
 └── README.md
 ```
 
@@ -60,7 +114,7 @@ python -m venv venv
 venv\Scripts\activate
 ```
 
-### Linux/macOS
+### Linux / macOS
 
 ```bash
 python3 -m venv venv
@@ -73,17 +127,23 @@ Install dependencies
 pip install -r requirements.txt
 ```
 
+Create a `.env` file in the project root
+
+```text
+GEMINI_API_KEY=YOUR_GEMINI_API_KEY
+```
+
 ---
 
 ## Running the Project
 
-### Download Spotify Reviews
+### Download Google Play Reviews
 
 ```bash
 python scripts/download_reviews.py
 ```
 
-### Download Reddit Reviews
+### Download Reddit Discussions
 
 ```bash
 python scripts/download_reddit.py
@@ -95,7 +155,13 @@ python scripts/download_reddit.py
 python scripts/download_appstore.py
 ```
 
-### Analyze Reviews
+### Merge Review Sources
+
+```bash
+python scripts/merge_reviews.py
+```
+
+### Analyze Reviews Using Gemini AI
 
 ```bash
 python scripts/analyze_reviews.py
@@ -103,37 +169,54 @@ python scripts/analyze_reviews.py
 
 ---
 
-## Output
+## AI Output
 
-The generated files are available in the `output/` directory.
-
-- analyzed_reviews.csv
-- dashboard_data.csv
-- reviews_batch_1.csv
-- reviews_batch_2.csv
+The AI automatically enriches every review with structured product insights.
 
 Each analyzed review contains:
 
-- Review
-- Rating
-- Sentiment
-- Problem Category
-- Discovery Issue
-- User Goal
-- User Segment
+| Field | Description |
+|--------|-------------|
+| Review | Original review text |
+| Rating | User rating |
+| Sentiment | Positive, Neutral or Negative |
+| Problem Category | Primary issue category |
+| Discovery Issue | Music discovery challenge |
+| User Goal | User's intended outcome |
+| User Segment | Listener type |
+| Feature Request | Requested improvement |
+| Unmet Need | Underlying customer need |
+
+---
+
+## Output Files
+
+Generated files are available in the `outputs/` directory.
+
+- analyzed_reviews.csv
+- dashboard_data.csv
+- combined_reviews.csv
+
+These files can be directly used for:
+
+- Product dashboards
+- User research
+- Product requirement documents
+- Feature prioritization
+- Customer insight reports
 
 ---
 
 ## Documentation
 
-Project documentation is available in the `docs/` folder.
+The `docs/` folder contains:
 
 - AI Workflow
-- Architecture
+- System Architecture
 - Dashboard Plan
-- Feature PRD
-- Findings
-- Metrics
+- Product Requirements Document (PRD)
+- Product Findings
+- Product Metrics
 - Product Strategy
 - User Journey
 - User Personas
@@ -145,9 +228,11 @@ Project documentation is available in the `docs/` folder.
 
 - Interactive Streamlit dashboard
 - Real-time review ingestion
-- Multi-language sentiment analysis
-- Advanced topic modeling
+- Support for additional social media platforms
+- Multi-language review analysis
+- Topic clustering and trend detection
 - Recommendation quality metrics
+- Automated insight summarization
 
 ---
 
